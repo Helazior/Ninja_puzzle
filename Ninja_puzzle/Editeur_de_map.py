@@ -5,11 +5,10 @@ _______________help________________
 
 - 0,1,2,3,5 pour choisir le bloc correspondant (0 par défaut)
 - clique pour poser un bloc
-- rester appuyé et bouger la souris pour poser plein de blocs
+- rester appuyer et bouger la souris pour poser plein de blocs
 - 's' pour enregistrer (en fait pour l'instant ça enregistre automatiquement quand on quitte)
 - 'u' pour revenir à la dernière sauvegarde, utile pour ne pas enregistrer ('z' était trop proche de 's')
-- "Entrer" pour tester le lvl, ne fonctionne que sur Linux.
-- flêches droite/gauche pour se déplacer dans les niveaux.
+- entrer pour tester le lvl
 
 - fileName est le nom du fichier texte, il doit exister. Maintenant contenu dans le fichier lvl_actuel.txt
 

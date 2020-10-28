@@ -1,18 +1,18 @@
 #Main
 """
-----help----
-flêches pour se déplacer, le but est d'arriver au point noir
-sur certains niveaux:
-'w' ou 'z' pour sauter 2 blocs
-'u' pour revenir en arrière
-"""
-"""
+-enregistrer map éditeur lors que -> ou <- que lors d'une modification sur la map
 -pouvoir agrandir la fenêtre
 -faire un menu avec tous les lvl
 -retour en arrière avec les caisses (limiter à quelques coups)
 """
 """
 faire ennemie statique qui tirent boules de feu en ligne et meurent quand on les touches
+"""
+
+"""
+Voir uniquement dans la direction qu'on regarde, le reste est noir. (comme warcraft III) i.e. on découvre la map au début, puis quand on l'a vu elle est juste sombre, par contre les ennemies ne sont visibles que lorsqu'on les regarde en face. une caisse va, par exemple, cacher la vision (mais aussi nous proteger). Les enemies laissent des traces, donc on peut se douter de leure présence.
+
+On peut débloquer des téléporteurs en plaçant les caisses à certains endroits; Et ouvrir des murs de la même manière
 """
 
 from pygame.locals import *
@@ -62,10 +62,10 @@ while continuer: #tout ce passe là dedans
                 if event.key >= 273 and event.key <= 276: #les flêches          
                     ninja.move(plateau, event.key) #bouger ninja
 
-                elif (event.key == K_w or event.key == K_z) and plateau.lvl.jump: # touche w
+                elif event.key == 119 and plateau.lvl.jump: # touche w
                     ninja.jump(plateau) #sauter de 2 cases
-                elif event.key == K_u and ninja.lastPosMatrice != [] and plateau.lvl.back: #touche u
-                    ninja.back(plateau) #touche u
+                elif event.key == 117 and ninja.lastPosMatrice != [] and plateau.lvl.back: #touche u
+                    ninja.back(plateau)
                 elif event.key == K_r:
                     print("Restart")
                     restart = True
