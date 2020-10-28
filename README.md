@@ -1,11 +1,11 @@
 # Ninja_puzzle
 Sokoban amélioré.
 
-Flêches pour se déplacer, le but est d'arriver au point noir.
-'+' pour passer au niveau suivant.
-Sur certains niveaux:
-'w' ou 'z' pour sauter 2 blocs
-'u' pour revenir en arrière
+Flêches pour se déplacer, le but est d'arriver au point noir.  
+'+' pour passer au niveau suivant.  
+Sur certains niveaux:  
+'w' ou 'z' pour sauter 2 blocs  
+'u' pour revenir en arrière  
 
 Editeur_de_map.py: pour créer de nouvelles maps
 - 0,1,2,3,5 pour choisir le bloc correspondant (0 par défaut)
@@ -18,9 +18,10 @@ Editeur_de_map.py: pour créer de nouvelles maps
 
 - fileName est le nom du fichier texte, il doit exister. Maintenant contenu dans le fichier lvl_actuel.txt
 
-Generateur_lvl.py:
+Generateur_lvl.py:  
 C'est un test pour générer des maps automatiquement qui fonctionne mais donne des maps extrêment simples.
+test non concluant et abandonné.
 
 ** **
 
-Étapes d'améliorations dans le Main.c en commentaire 
+Idées d'améliorations dans le Main.c en commentaire pour un faire un vrai jeu dynamique, avec des ennemies etc.
