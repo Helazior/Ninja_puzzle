@@ -21,4 +21,6 @@ Editeur_de_map.py: pour créer de nouvelles maps
 Generateur_lvl.py:
 C'est un test pour générer des maps automatiquement qui fonctionne mais donne des maps extrêment simples.
 
+** **
 
+Étapes d'améliorations dans le Main.c en commentaire 
