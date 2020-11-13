@@ -18,7 +18,7 @@ import pygame
 from pygame.locals import *
 import sys, os
 
-from Plateau import * #sous-programme comprennant toutes les fonctions et la classe concernant la map
+from plateau import * #sous-programme comprennant toutes les fonctions et la classe concernant la map
 
 pygame.init()
 

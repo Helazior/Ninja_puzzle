@@ -1,3 +1,5 @@
+#faire un fichier texte, et régler les paramètres dans l'éditeur
+
 class Map_lvl:
     def __init__(self, lvl):
         self.maptxt  = "lvl"+str(lvl)+".txt"

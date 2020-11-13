@@ -1,8 +1,6 @@
 #Plateau
 
-from random import randint
-
-from Choix_lvl import *
+from choix_lvl import *
 
 def change_lvl(plateau, increment):
     with open("lvl_actuel.txt","w") as fill:

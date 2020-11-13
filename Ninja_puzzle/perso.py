@@ -1,6 +1,9 @@
-#Perso
+# -*- coding: utf-8 -*-
+
+#perso
 
 import pygame
+from pygame.locals import *
 
 def conv_pixel(pos):
     return [pos[0]*30, pos[1]*30]
@@ -25,34 +28,36 @@ class Perso():
         posDebut = recherche_debut(plateau)
         self.posMatrice = posDebut #on place le perso au début
         plateau.fenetre.blit(self.image1, conv_pixel(self.posMatrice)) #On affiche le perso
-        self.dicoDirections = {1:[0,-1], 2:[0,1], 3:[1,0], 4:[-1,0]}
-        self.direction = self.dicoDirections[1]
+        self.dicoDirections = {K_UP:[0,-1], K_DOWN:[0,1], K_RIGHT:[1,0], K_LEFT:[-1,0]}
+        self.direction = self.dicoDirections[K_UP]
         self.lastPosMatrice = []
         self.lastDirection = []
         self.win = False
-        
+
+
     def move(self, plateau, key):
-        direction = self.dicoDirections[key - 272]
+        direction = self.dicoDirections[key]
         self.show(plateau, 1, direction)
-        
+
 
     def jump(self, plateau):
         self.show(plateau, 2, self.direction)
+
 
     def back(self, plateau):
         self.posMatrice = self.lastPosMatrice[-1]
         del self.lastPosMatrice[-1]
         self.direction = self.lastDirection[-1]
         del self.lastDirection[-1]
-        plateau.fenetre.blit(plateau.copy_fond,(0, 0))        
+        plateau.fenetre.blit(plateau.copy_fond,(0, 0))
         plateau.fenetre.blit(self.imageDirection(), conv_pixel(self.posMatrice))
 
 
     def show(self, plateau, step, direction):
- 
+
         posx_0 = self.posMatrice[0]
         posy_0 = self.posMatrice[1]
-        
+
         posx_1 = posx_0 + step * direction[0]
         posy_1 = posy_0 + step * direction[1]
 
@@ -70,7 +75,7 @@ class Perso():
                     plateau.Matrice[posy_2][posx_2] += 5
 
                     plateau.fenetre.blit(plateau.copy_fond,(0, 0))
-                    
+
                     mat = plateau.Matrice[posy_1][posx_1]
                     pos1 = (30*posx_1, 30*posy_1)
                     if (posx_0 + posy_0) % 2: 
@@ -81,13 +86,13 @@ class Perso():
                     if mat == 2:
                         plateau.fenetre.blit(plateau.imageStart, pos1)
                     elif mat == 3:
-                        plateau.fenetre.blit(plateau.imageEnd, pos1)                 
-                    
+                        plateau.fenetre.blit(plateau.imageEnd, pos1)
+
                     image = plateau.imageCaisse
                     if plateau.Matrice[posy_2][posx_2] == 8:
                         plateau.nbEnd -= 1
                         image = plateau.imageCaissePlace
-                    
+
                     plateau.fenetre.blit(image, (30*posx_2, 30*posy_2))
 
                     if plateau.Matrice[posy_1][posx_1] == 3:
@@ -95,13 +100,11 @@ class Perso():
 
 
                     plateau.copy_fond = pygame.display.get_surface().copy()
-                
 
 
                 self.posMatrice[0] = posx_1
                 self.posMatrice[1] = posy_1
                 self.direction = direction
-  
                 plateau.fenetre.blit(plateau.copy_fond,(0, 0))
                 plateau.fenetre.blit(self.imageDirection(), conv_pixel(self.posMatrice))
                 self.direction = direction
@@ -116,8 +119,6 @@ class Perso():
                 if plateau.nbEnd == 0:
                     self.win = True
 
-                
-
     def imageDirection(self):
 
         if self.direction == [0,-1]:
@@ -128,6 +129,3 @@ class Perso():
             return self.image3
         else:
             return self.image4
-
-        
-
